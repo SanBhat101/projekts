@@ -2,28 +2,32 @@
 #heading1 {
     text-align: center;
     font-size: 2em;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
   }
   
   /* Style the input field */
   #userinput1,#userinput2 {
     display: block;
     width: 80%;
-    padding: 12px 20px;
-    margin: 20px auto 20px;
+    padding: 0.7% 1.2%;
+    margin: 1.2% auto 1.2%;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 1em;
   }
   
+div{
+  display: flex;
+}
+
   /* Style the translate button */
-  #toMorse {
-    display: block;
-    width: 200px;
-    padding: 12px; 
-    margin: 0 auto;
-    /*background: radial-gradient(circle,#ddd,#4CAF50);*/
+  #toMorse,#toEng {
+    width: 25%;
+    max-width: 200px;
+    /*width: 200px;*/
+    padding: 0.7%; 
+    /*margin: 0 auto;*/
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -32,29 +36,41 @@
     cursor: pointer;
     box-shadow: 0 0 5px #333;
   }
-  #toMorse:active {
-    display: block;
-    width: 200px;
-    padding: 12px; 
-    margin: 0 auto;
+
+  #toMorse{
+    margin-left: 22%;
+  }
+  #toEng{
+    margin-left: 10%;
+  }
+
+
+  #toMorse:active ,#toEng:active { 
+    /*margin: 0 auto;*/
     background-color: #b500fc;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 1em;
-    cursor: pointer;
     transform: scale(0.95);
     transition: transform 0.2s;
   }
-  
+
+  @media (max-width: 600px) {
+    #userinput1,#userinput2 {
+      margin-bottom: -5%;
+    }
+}
+
+  @media (min-width: 1200px) {
+    #toMorse{
+      margin-left: 30%;
+    }
+  }
  
-  .to-Morse #invalid_chars{
+  .erroR #invalid_chars1,#invalid_chars2{
     display: block;
     color: red;
     font-weight: bold;
     font-style: italic;
     width: 80%;
-    margin: 20px auto 20px;
+    margin: 1.2% auto 1.2%;
     font-family: "Spline Sans Mono";
     font-size: 0.8em;
   }

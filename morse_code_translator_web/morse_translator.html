@@ -6,15 +6,21 @@
     <link rel="stylesheet" href="morse_translator.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Spline+Sans+Mono">
     <script src="morse_translator.js"></script>
+    <script src="morse_to_english.js"></script>
     <title>Morse Code Translator</title>
 </head>
 <body>
     <h1 id="heading1">Morse Code Translator</h1>
     <input placeholder="English Text" type="text" id="userinput1">
+    <p id="invalid_chars1"></p>
     <br>
-    <button onclick="toMorse()" id="toMorse">Translate to Morse</button>
+    <div>
+        <button onclick="toMorse()" id="toMorse">Translate to Morse</button>
+        <button onclick="toEnglish()" id="toEng">Translate to English</button>
+    </div>
+    
     <br>
     <input placeholder="Morse Code" type="text" id="userinput2">
-    <p id="invalid_chars"></p>
+    <p id="invalid_chars2"></p>
 </body>
 </html>

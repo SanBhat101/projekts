@@ -67,6 +67,29 @@ def translate_to_morse(text: str) -> str:
     return morse_code,invalid_chars
 
 
+def morse_to_e(text: str) -> str:
+    translate_txt=""
+    eng_txt=""
+    s_c=0
+
+    for chr in text:
+        if chr !=" ":
+            translate_txt+=chr
+            s_c=0
+            continue
+        if chr == " " or chr == "\n":
+            s_c+=1
+            if s_c>1:
+                eng_txt+=" "
+            else:
+                eng_txt+=MORSE_TO_ENG_DICT[translate_txt]
+                #print(eng_txt)
+                translate_txt=""
+            #print(eng_txt)
+    if translate_txt:
+        eng_txt+=MORSE_TO_ENG_DICT[translate_txt]
+
+    return eng_txt
 
 def morse_to_eng(text: str) -> str:
     translate_txt = ""

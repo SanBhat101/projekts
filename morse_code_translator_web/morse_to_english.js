@@ -1,9 +1,9 @@
-function toMorse() {
+function toEnglish() {
     // button click handler code
     //console.log("Hello World!");
 
      // Replace this URL with the actual URL of your Flask API endpoint
-  const apiUrl = 'http://127.0.0.1:5000/api/translate_to_morse';
+  const apiUrl = 'http://127.0.0.1:5000/api/morse_to_english';
 
   eng_txt=document.getElementById('userinput1');
   morse_code=document.getElementById('userinput2');
@@ -16,7 +16,7 @@ function toMorse() {
 
   // Data to be sent in the POST request
   const postData = {
-    'user_input': eng_txt.value,
+    'user_input': morse_code.value,
     // Add more key-value pairs as needed
   };
   //console.log(invalid_chars);
@@ -25,7 +25,7 @@ function toMorse() {
   //console.log(morse_code);
 
   // Perform the POST request using the fetch API
-  if (eng_txt.value) {
+  if (morse_code.value) {
   fetch(apiUrl, {
     method: 'POST',
     headers: {
@@ -40,14 +40,14 @@ function toMorse() {
     // Handle the response data here
     //console.log(data.result[0]);
     //errorMsg.parentElement.classList.add('to-morse');
-    morse_code.value = data.result[0];
+    eng_txt.value = data.result[0];
     if (data.result[1].length) {
         //console.log(data.result[1]);
         //console.log(errorMsg);
-        errorMsg1.parentElement.classList.add('erroR');
-        invalid_chars1.innerHTML = "Invalid characters: ";
+        errorMsg2.parentElement.classList.add('erroR');
+        invalid_chars2.innerHTML = "Invalid characters: ";
         for (const ch in data.result[1]) {
-            invalid_chars1.innerHTML += data.result[1][ch] + " ";
+            invalid_chars2.innerHTML += data.result[1][ch] + " ";
         }
     }
     if (!data.result[1].length) {
@@ -71,6 +71,6 @@ function toMorse() {
         errorMsg2.parentElement.classList.remove('erroR');
         invalid_chars1.innerHTML = "";
         invalid_chars2.innerHTML = "";
-        morse_code.value="";
+        eng_txt.value="";
     }
-  }
+  } 
